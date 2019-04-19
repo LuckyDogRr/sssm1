@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.wanho.mapper.StudentMapper">
+
+    <insert id="addStudent" parameterType="Student">
+        INSERT INTO student VALUES (NULL ,#{sname},#{age},#{gender},#{address})
+    </insert>
+
+    <delete id="delStudentById">
+          DELETE  FROM student where id=#{id}
+    </delete>
+
+    <update id="updateStudentById">
+          UPDATE  student SET sname=#{sname},age=#{age},gender=#{gender},address=#{address} where id=#{id}
+    </update>
+
+    <select id="getStudents" resultType="net.wanho.pojo.Student">
+        SELECT * from student
+    </select>
+
+    <select id="getStudentById" resultType="net.wanho.pojo.Student">
+        SELECT * from student WHERE  id=#{id}
+    </select>
+    <select id="getStu" resultType="net.wanho.pojo.Student">
+          SELECT * from student
+    </select>
+</mapper>
